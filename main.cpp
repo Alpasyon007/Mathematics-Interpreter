@@ -5,6 +5,6 @@ int main() {
 
     while(true) {
         In.Tokenise(In.GetInput());
-        In.Print();
+        //In.Print();
     } 
 }
