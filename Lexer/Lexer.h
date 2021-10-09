@@ -1,15 +1,17 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include "Token/Token.h"
 
-class Input {
+class Lexer {
     private:
-        std::vector<std::string> m_strVec;
+        std::vector<Token> m_tokenVec;
     private:
         void ClearInput();
     public:
-        Input();
-        std::string GetInput();
+        Lexer();
+        
         void Tokenise(std::string str);
-        void Print();
+        
+        std::string GetInput();
 };

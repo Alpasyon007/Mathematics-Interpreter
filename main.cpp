@@ -1,10 +1,9 @@
-#include "Input/Input.h"
+#include "Lexer/Lexer.h"
 
 int main() {
-    Input In;
+    Lexer Lexer;
 
     while(true) {
-        In.Tokenise(In.GetInput());
-        //In.Print();
+        Lexer.Tokenise(Lexer.GetInput());
     } 
 }

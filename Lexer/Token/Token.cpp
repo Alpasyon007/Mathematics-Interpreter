@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include "Token.h"
-#include "../Debug/Debug.cpp"
+#include "../../Debug/Debug.cpp"
 
 Token::Token(std::string word) {
     if(m_tokenType != INT || m_tokenType != FLOAT) {
@@ -17,18 +17,24 @@ Token::Token(std::string word) {
             case (char)m_digits_ascii[8]:
             case (char)m_digits_ascii[9]:
                 GetNumType(word);
+                if(m_tokenType == INT) Out("INT");
+                if(m_tokenType == FLOAT) Out("FLOAT");
                 break;
             case '+':
                 m_tokenType = PLUS;
+                Out("PLUS");
                 break;
             case '-':
                 m_tokenType = MINUS;
+                Out("MINUS");
                 break;
             case '*':
                 m_tokenType = MULTIPLY;
+                Out("MULTIPLY");
                 break;
             case '/':
                 m_tokenType = DIVIDE;
+                Out("DIVIDE");
                 break;
         } 
     }
@@ -40,12 +46,12 @@ void Token::GetNumType(std::string word) {
     for(char i : word) {
         for(int j : m_digits_ascii) {
             if( i == (char)j ) {
-                //Is intiger
+                //INT
                 if(!hitPeriod) {
                     m_tokenType = INT;
                 }
             } else if ( i == m_period ) {
-                //Is float
+                //FLOAT
                 if(!hitPeriod) {
                     m_tokenType = FLOAT;
                     hitPeriod = true;
