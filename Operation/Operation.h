@@ -5,19 +5,19 @@ enum Operation {
     SUBTRACT,
     MULTIPLY,
     DIVIDE
-}
+};
 
 struct Expression {
-    Operation opertaion;
-    expression lhs*;
-    expression rhs*;
-}
+    Operation operation;
+    Expression* lhs;
+    Expression* rhs;
+};
 
 class OperationTree {
     private:
         void destroy_tree(Expression *leaf);
-        void insert(int key, Expression *leaf);
-        Expression *search(int key, Expression *leaf);
+        void insert(Operation key, Expression *leaf);
+        Expression *search(Operation key, Expression *leaf);
          
         Expression *root;
 
@@ -25,7 +25,7 @@ class OperationTree {
         OperationTree();
         ~OperationTree();
  
-        void insert(int key);
-        Expression *search(int key);
+        void insert(Operation key);
+        Expression *search(Operation key);
         void destroy_tree();
 };
