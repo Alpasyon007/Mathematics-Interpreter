@@ -1,7 +1,6 @@
 #include <iostream>
 
 template <typename T> void Out(T out) {
-
     std::cout << "\033[37m" << out << "\033[0m" << std::endl;
 }
 
